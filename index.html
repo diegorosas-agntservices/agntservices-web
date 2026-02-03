@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AGNT SERVICES - Ingeniería Web que Escala tu Negocio. Desarrollo web corporativo, aplicaciones a medida y arquitectura escalable.">
+    <title>AGNT SERVICES - Ingeniería Web que Escala tu Negocio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #e0e5ec;
+            --light-shadow: -9px -9px 16px rgba(255, 255, 255, 1);
+            --dark-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
+            --inset-dark: inset 6px 6px 12px rgba(163, 177, 198, 0.6);
+            --inset-light: inset -6px -6px 12px rgba(255, 255, 255, 1);
+            --accent: #2a2a2a;
+            --accent-light: #404040;
+            --text: #4d5460;
+            --text-light: #7a8291;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--bg);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(163, 177, 198, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #000000 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .logo-nav .services {
+            font-weight: 600;
+            margin-left: 10px;
+            color: #505050;
+            -webkit-text-fill-color: #505050;
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .header-cta {
+            padding: 12px 28px;
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
+        }
+
+        .header-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: -10px -10px 18px rgba(255, 255, 255, 1),
+                10px 10px 18px rgba(163, 177, 198, 0.7);
+        }
+
+        .header-cta:active {
+            transform: translateY(0);
+            box-shadow: var(--inset-dark), var(--inset-light);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 120px 40px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #hero {
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: var(--text);
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border-radius: 25px;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--bg);
+            color: var(--accent);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: -12px -12px 20px rgba(255, 255, 255, 1),
+                12px 12px 20px rgba(163, 177, 198, 0.7);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: var(--inset-dark), var(--inset-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+                inset 4px 4px 8px rgba(163, 177, 198, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: -12px -12px 24px rgba(255, 255, 255, 1),
+                12px 12px 24px rgba(163, 177, 198, 0.7);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text);
+        }
+
+        /* Value Proposition */
+        .value-grid {
+            display: grid;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .value-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 30px;
+            align-items: center;
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+        }
+
+        .value-item:nth-child(even) {
+            grid-template-columns: 1fr 100px;
+        }
+
+        .value-item:nth-child(even) .value-icon {
+            order: 2;
+        }
+
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 25px;
+            background: var(--bg);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-content h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .value-content p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Detailed Services */
+        .detailed-services {
+            display: grid;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .service-detail {
+            padding: 50px;
+            border-radius: 40px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+        }
+
+        .service-detail h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .service-detail p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--bg);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-left: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .team-photo {
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border-radius: 40px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--accent);
+            opacity: 0.3;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-container h2 {
+            font-size: 48px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .contact-subtitle {
+            font-size: 18px;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            border: none;
+            outline: none;
+            background: var(--bg);
+            padding: 18px 25px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--text);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            transition: all 0.3s ease;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            box-shadow: inset 8px 8px 14px rgba(163, 177, 198, 0.8),
+                inset -8px -8px 14px rgba(255, 255, 255, 1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: -12px -12px 24px rgba(255, 255, 255, 1),
+                12px 12px 24px rgba(163, 177, 198, 0.7);
+        }
+
+        .testimonial-quote {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            background: var(--bg);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .testimonial-rating {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .portfolio-card {
+            border-radius: 30px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: -12px -12px 24px rgba(255, 255, 255, 1),
+                12px 12px 24px rgba(163, 177, 198, 0.7);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #2a2a2a 0%, #404040 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 60px;
+        }
+
+        .portfolio-content {
+            padding: 30px;
+        }
+
+        .portfolio-content h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .portfolio-content p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            padding: 6px 14px;
+            border-radius: 15px;
+            background: var(--bg);
+            box-shadow: var(--inset-dark), var(--inset-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg);
+            padding: 80px 40px 30px;
+            box-shadow: 0 -4px 20px rgba(163, 177, 198, 0.2);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-columns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-column p,
+        .footer-column a {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--text-light);
+            font-weight: 300;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #000000 0%, #404040 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            background: var(--bg);
+            box-shadow: var(--light-shadow), var(--dark-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: -8px -8px 16px rgba(255, 255, 255, 1),
+                8px 8px 16px rgba(163, 177, 198, 0.7);
+        }
+
+        .social-icon:active {
+            transform: translateY(0);
+            box-shadow: var(--inset-dark), var(--inset-light);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(163, 177, 198, 0.2);
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 100px 20px 60px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .logo-nav {
+                font-size: 20px;
+            }
+
+            .logo-nav .services {
+                font-size: 16px;
+                margin-left: 6px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(26, 26, 26, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                gap: 30px;
+                transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            h1 {
+                font-size: 36px;
+                line-height: 1.2;
+            }
+
+            h1::after {
+                width: 60px;
+                height: 3px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+            }
+
+            .value-item {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .value-icon {
+                margin: 0 auto 20px;
+            }
+
+            .service-detail {
+                padding: 30px 20px;
+            }
+
+            .service-detail h3 {
+                font-size: 26px;
+            }
+
+            .service-detail p {
+                font-size: 15px;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 16px 30px;
+                font-size: 15px;
+            }
+
+            .contact-container h2 {
+                font-size: 32px;
+            }
+
+            .contact-subtitle {
+                font-size: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .about-content h2 {
+                font-size: 32px;
+            }
+
+            .about-content p {
+                font-size: 16px;
+            }
+
+            .team-photo {
+                width: 200px;
+                height: 200px;
+                font-size: 60px;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .portfolio-card {
+                border-radius: 25px;
+            }
+
+            .portfolio-content {
+                padding: 25px 20px;
+            }
+
+            .footer-columns {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 20px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav">AGNT <span class="services">SERVICES</span></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="#contacto" class="header-cta">Cotizar Proyecto</a>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="section-content">
+            <h1>Ingeniería Web que<br>Escala tu Negocio</h1>
+            <p class="hero-subtitle">
+                Desarrollamos sitios y aplicaciones web a medida con arquitectura sólida.
+                La base tecnológica que tu empresa necesita hoy para liderar mañana.
+            </p>
+            <div class="cta-container">
+                <a href="#contacto" class="btn btn-primary">Cotizar Proyecto</a>
+                <a href="#servicios" class="btn btn-secondary">Ver Portafolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="servicios">
+        <div class="section-content">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3>Desarrollo Web Corporativo</h3>
+                    <p>Sitios rápidos, seguros y optimizados para conversión. Tu presencia digital, elevada al estándar
+                        profesional.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3>Web Apps & Plataformas</h3>
+                    <p>Sistemas a medida (SaaS, Dashboards) que digitalizan tus procesos operativos y conectan con tus
+                        clientes.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Arquitectura Escalable</h3>
+                    <p>Código limpio y estructuras listas para integrar futuras expansiones móviles y capas de seguridad
+                        avanzada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section id="valor">
+        <div class="section-content">
+            <h2 class="section-title">¿Por qué elegir AGNT SERVICES?</h2>
+            <div class="value-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <div class="value-content">
+                        <h3>Enfoque "Code-First"</h3>
+                        <p>No usamos plantillas genéricas. Desarrollamos soluciones pensadas en el rendimiento real.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="value-content">
+                        <h3>Visión 360°</h3>
+                        <p>No solo entregamos una web; entregamos una herramienta preparada para evolucionar hacia apps
+                            nativas y ecosistemas seguros.</p>
+                    </div>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="color: var(--accent);">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="value-content">
+                        <h3>Partners, no Proveedores</h3>
+                        <p>Te acompañamos desde la primera línea de código hasta el despliegue final.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section id="servicios-detalle">
+        <div class="section-content">
+            <h2 class="section-title">Soluciones Digitales a Medida</h2>
+            <p
+                style="text-align: center; font-size: 20px; color: var(--text-light); margin-bottom: 60px; font-weight: 300;">
+                Tecnología actual con visión de futuro.
+            </p>
+
+            <div class="detailed-services">
+                <div class="service-detail">
+                    <h3>Web Development</h3>
+                    <p>
+                        Diseñamos y programamos sitios web que no solo se ven bien, sino que funcionan como una
+                        herramienta de venta.
+                        Priorizamos la velocidad de carga, el SEO técnico y la experiencia de usuario (UX/UI) para
+                        garantizar que tu marca destaque.
+                    </p>
+                </div>
+
+                <div class="service-detail">
+                    <h3>Software a Medida</h3>
+                    <p>
+                        Transformamos operaciones complejas en interfaces sencillas. Desde portales de clientes hasta
+                        sistemas de gestión interna,
+                        desarrollamos el software que tu empresa necesita para automatizar y crecer, accesible desde
+                        cualquier navegador.
+                    </p>
+                </div>
+
+                <div class="service-detail">
+                    <h3>
+                        AGNT Roadmap
+                        <span class="coming-soon-badge">Próximamente</span>
+                    </h3>
+                    <p>
+                        La tecnología no se detiene y nosotros tampoco. Estamos trabajando activamente en la integración
+                        de servicios de
+                        <strong>Ciberseguridad Ofensiva</strong> y <strong>Desarrollo Nativo (iOS/Android)</strong> para
+                        ofrecerte un ecosistema
+                        digital blindado y omnipresente en el corto plazo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portafolio">
+        <div class="section-content">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            <p
+                style="text-align: center; font-size: 18px; color: var(--text-light); margin-bottom: 60px; font-weight: 300;">
+                Ejemplos de soluciones que hemos desarrollado para nuestros clientes.
+            </p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="project-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Portal Corporativo</h3>
+                        <p>
+                            Sitio web institucional con sistema de gestión de contenidos, optimizado para SEO y
+                            conversión. Incrementó el tráfico orgánico en 150%.
+                        </p>
+                        <div class="tech-badges">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="project-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Dashboard Analítico</h3>
+                        <p>
+                            Plataforma SaaS para visualización de datos en tiempo real con múltiples integraciones.
+                            Procesa más de 1M de eventos diarios.
+                        </p>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Vue.js</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="project-image">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>E-commerce Escalable</h3>
+                        <p>
+                            Tienda en línea con pasarela de pagos, gestión de inventario y panel administrativo.
+                            Soporta 10K+ productos y alta concurrencia.
+                        </p>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">Stripe</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros">
+        <div class="section-content">
+            <div class="about-content">
+                <h2>Somos AGNT SERVICES</h2>
+                <p>
+                    Nacimos con una convicción clara: el desarrollo de software no debe ser una "caja negra" para los
+                    negocios.
+                    Somos una agencia de desarrollo joven, técnica y transparente.
+                </p>
+                <p>
+                    <strong>Nuestra Misión:</strong> Democratizar el acceso a tecnología de alto nivel para
+                    emprendedores y empresas
+                    que buscan dar el salto digital, creando bases sólidas hoy para las innovaciones del mañana.
+                </p>
+
+                <div class="team-photo">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+
+                <p>
+                    Detrás de AGNT hay un equipo de desarrolladores apasionados por la arquitectura de software, la
+                    seguridad y la experiencia de usuario.
+                    Lo que ves es lo que somos: código de calidad y compromiso real.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios">
+        <div class="section-content">
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "AGNT SERVICES transformó nuestra presencia digital. El sitio web no solo es visualmente
+                        impresionante, sino que también duplicó nuestras conversiones en los primeros 3 meses."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>María Rodríguez</h4>
+                            <p>CEO, TechStart Solutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "Profesionales de primer nivel. Entregaron una plataforma SaaS robusta y escalable que maneja
+                        miles de usuarios simultáneos sin problemas. Altamente recomendados."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">CL</div>
+                        <div class="author-info">
+                            <h4>Carlos López</h4>
+                            <p>CTO, DataFlow Analytics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote">
+                        "Lo que más valoro es su transparencia y comunicación constante. Siempre supieron explicar
+                        conceptos técnicos de forma clara. El resultado superó nuestras expectativas."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AP</div>
+                        <div class="author-info">
+                            <h4>Ana Pérez</h4>
+                            <p>Directora de Marketing, Innovate Corp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto">
+        <div class="section-content">
+            <div class="contact-container">
+                <h2>Hablemos de tu próximo gran proyecto</h2>
+                <p class="contact-subtitle">
+                    Tienes la visión, nosotros tenemos el código. Cuéntanos qué necesitas y construyamos algo increíble.
+                </p>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" class="form-input" placeholder="Tu nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-input" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Tipo de Proyecto</label>
+                        <select id="project-type" class="form-select" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="web-corporativo">Sitio Web Corporativo</option>
+                            <option value="web-app">Aplicación Web / SaaS</option>
+                            <option value="ecommerce">E-commerce</option>
+                            <option value="dashboard">Dashboard / Sistema Interno</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Cuéntanos sobre tu proyecto</label>
+                        <textarea id="message" class="form-textarea"
+                            placeholder="Describe tu idea, objetivos y cualquier detalle relevante..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">Iniciar Conversación</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-columns">
+                <!-- About Column -->
+                <div class="footer-column">
+                    <div class="footer-logo">AGNT SERVICES</div>
+                    <p class="footer-tagline">
+                        Ingeniería web que escala tu negocio. Código limpio, arquitectura sólida, resultados reales.
+                    </p>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-column">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacidad">Política de Privacidad</a></li>
+                        <li><a href="#terminos">Términos y Condiciones</a></li>
+                        <li><a href="#cookies">Política de Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Social Column -->
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>contacto@agntservices.com</p>
+                    <p>+52 (55) 1234-5678</p>
+                    <div class="social-icons">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-icon"
+                            aria-label="Twitter/X">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © 2026 AGNT SERVICES. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const projectType = document.getElementById('project-type').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation feedback
+            alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Te contactaremos pronto a ${email}.`);
+
+            // Reset form
+            this.reset();
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and value items
+        document.querySelectorAll('.service-card, .value-item, .service-detail, .portfolio-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
