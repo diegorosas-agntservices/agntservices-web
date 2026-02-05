@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       // 2. Send the email
       await transporter.sendMail({
         from: `"AGNT Web Form" <${email}>`, // Sender address
-        to: 'YOUR_EMAIL@gmail.com', // List of receivers (your email)
+        to: 'diegorosas@agntservices.org', // List of receivers (your email)
         subject: `New Project Inquiry: ${projectType} from ${name}`,
         text: `
           Name: ${name}
